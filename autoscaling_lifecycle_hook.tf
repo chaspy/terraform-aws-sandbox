@@ -3,11 +3,34 @@ provider "aws" {
   region  = "us-east-1"
 }
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
+
+resource "aws_launch_configuration" "chaspy_test_lc" {
+  name          = "test_config"
+  image_id      = "${data.aws_ami.ubuntu.id}"
+  instance_type = "t3.nano"
+}
+
 resource "aws_autoscaling_group" "chaspy_test_asg" {
   availability_zones   = ["ap-northeast-1"]
   name                 = "chaspy-test-asg"
   health_check_type    = "EC2"
   termination_policies = ["OldestInstance"]
+  launch_configuration = "${aws_launch_configuration.chaspy_test_lc.name}"
 
   max_size             = 10
   min_size             = 1
