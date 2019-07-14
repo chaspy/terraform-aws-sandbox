@@ -27,7 +27,7 @@ resource "aws_launch_configuration" "chaspy_test_lc" {
 
 resource "aws_autoscaling_group" "chaspy_test_asg" {
   availability_zones   = ["ap-northeast-1d"]
-  name                 = "chaspy-test-asg"
+  name                 = "chaspy-tf-asg"
   health_check_type    = "EC2"
   termination_policies = ["OldestInstance"]
   launch_configuration = "${aws_launch_configuration.chaspy_test_lc.name}"
