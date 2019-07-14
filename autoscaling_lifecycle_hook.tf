@@ -9,6 +9,9 @@ resource "aws_autoscaling_group" "chaspy_test_asg" {
   health_check_type    = "EC2"
   termination_policies = ["OldestInstance"]
 
+  max_size             = 10
+  min_size             = 1
+
   tag {
     key                 = "Foo"
     value               = "foo-bar"
