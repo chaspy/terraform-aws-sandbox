@@ -58,3 +58,6 @@ EOF
 #  notification_target_arn = "arn:aws:sqs:us-east-1:444455556666:queue1*"
 #  role_arn                = "arn:aws:iam::123456789012:role/S3Access"
 }
+
+resource "aws_autoscaling_group" "chaspy_test_imported_asg" {
+}
