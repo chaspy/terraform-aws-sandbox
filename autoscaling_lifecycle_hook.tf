@@ -1,3 +1,8 @@
+provider "aws" {
+  version = "~> 2.0"
+  region  = "us-east-1"
+}
+
 resource "aws_autoscaling_group" "chaspy_test_asg" {
   availability_zones   = ["ap-northeast-1"]
   name                 = "chaspy-test-asg"
