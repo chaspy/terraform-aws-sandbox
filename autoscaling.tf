@@ -58,8 +58,3 @@ EOF
 #  role_arn                = "arn:aws:iam::123456789012:role/S3Access"
 }
 
-resource "aws_autoscaling_group" "chaspy_test_imported_asg" {
-}
-
-resource "aws_autoscaling_lifecycle_hook" "chaspy_test_imported_hook" {
-}
