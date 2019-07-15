@@ -60,3 +60,6 @@ EOF
 
 resource "aws_autoscaling_group" "chaspy_test_imported_asg" {
 }
+
+resource "aws_autoscaling_lifecycle_hook" "chaspy_test_imported_hook" {
+}
