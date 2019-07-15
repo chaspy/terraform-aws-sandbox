@@ -32,7 +32,7 @@ resource "aws_autoscaling_group" "chaspy_test_asg" {
   launch_configuration = "${aws_launch_configuration.chaspy_test_lc.name}"
 
   max_size             = 10
-  min_size             = 1
+  min_size             = 0
 
   tag {
     key                 = "Foo"
