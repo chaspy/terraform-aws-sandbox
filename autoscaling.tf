@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = "ap-northeast-1"
+  region = "ap-northeast-1"
 }
 
 data "aws_ami" "ubuntu" {
@@ -31,8 +31,8 @@ resource "aws_autoscaling_group" "chaspy_test_asg" {
   termination_policies = ["OldestInstance"]
   launch_configuration = "${aws_launch_configuration.chaspy_test_lc.name}"
 
-  max_size             = 10
-  min_size             = 0
+  max_size = 10
+  min_size = 0
 
   tag {
     key                 = "Foo"
@@ -54,7 +54,6 @@ resource "aws_autoscaling_lifecycle_hook" "chaspy_test_hook" {
 }
 EOF
 
-#  notification_target_arn = "arn:aws:sqs:us-east-1:444455556666:queue1*"
-#  role_arn                = "arn:aws:iam::123456789012:role/S3Access"
+  #  notification_target_arn = "arn:aws:sqs:us-east-1:444455556666:queue1*"
+  #  role_arn                = "arn:aws:iam::123456789012:role/S3Access"
 }
-
