@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "ap-northeast-1"
+}
+
 resource "aws_cloudwatch_event_rule" "console" {
   name        = "capture-aws-sign-in"
   description = "Capture each AWS Console Sign In"
